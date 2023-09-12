@@ -83,4 +83,22 @@ class HexagonVector {
     operator fun div(divisor : Int) : HexagonVector {
         return HexagonVector(this.a / divisor, this.b / divisor)
     }
+
+    // PUBLIC INSTANCE METHODS - SUPERCLASS Object
+
+    override fun toString(): String {
+        return "($a, $b)"
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (other == null) { return false }
+        if (other !is HexagonVector) { return false }
+
+        return this.a == other.a && this.b == other.b
+    }
+
+    override fun hashCode(): Int {
+        val long : Long = a.toLong() shl 32 or b.toLong()
+        return long.hashCode()
+    }
 }
