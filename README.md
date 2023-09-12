@@ -26,7 +26,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.MaxBuster380:Hexavect:release-1.0.0'
+    implementation 'com.github.MaxBuster380:Hexavect:release-1.0.1'
 }
 ```
 
@@ -46,7 +46,7 @@ In `pom.xml` :
 <dependency>
     <groupId>com.github.MaxBuster380</groupId>
     <artifactId>Hexavect</artifactId>
-    <version>release-1.0.0</version>
+    <version>release-1.0.1</version>
 </dependency>
 ```
 

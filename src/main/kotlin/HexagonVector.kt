@@ -102,7 +102,7 @@ class HexagonVector {
             val t = tan(PI / 3.0)
 
             val a = round((x + -y / t)/diameter).toInt()
-            val b = round(y / s / diameter).toInt()
+            val b = round(y / (s * diameter)).toInt()
 
             return HexagonVector(a, b)
         }
