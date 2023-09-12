@@ -54,7 +54,7 @@ In `pom.xml` :
 
 In this library, you'll find a single class : **HexagonVector**, which can both represent position and movement on the plane.
 HexagonVector acts like a **value** rather than an object, meaning an instance never changes.
-Note that a hexagon is **not subdividable**, like a square or triangle could, so all operations are done with integers.
+Note that a hexagon is **not subdividable**, unlike a square or triangle, so all operations are done with integers.
 
 It provides 7 class constants to do operations with :
  - **ORIGIN**, center of the plane.
