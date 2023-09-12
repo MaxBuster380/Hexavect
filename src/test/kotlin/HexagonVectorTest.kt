@@ -43,4 +43,48 @@ class HexagonVectorTest {
             )
         }
     }
+
+    /**
+     * Check for HOR_LEFT * a + ASC_LEFT * b
+     */
+    @Test
+    fun distanceCheck3() {
+        for(i in 1..RANDOM_CHECK_COUNT) {
+            val aShift = (abs(Random.nextInt()) % 1E6).toInt()
+            val bShift = (abs(Random.nextInt()) % 1E6).toInt()
+
+            val hexagon = HexagonVector.HOR_LEFT * aShift + HexagonVector.ASC_LEFT * bShift
+
+            assertEquals(
+                hexagon.distance(HexagonVector.ORIGIN),
+                aShift + bShift
+            )
+        }
+    }
+
+    /**
+     * Check for HOR_LEFT * a + DESC_LEFT * b
+     */
+    @Test
+    fun distanceCheck4() {
+        for(i in 1..RANDOM_CHECK_COUNT) {
+            val aShift = (abs(Random.nextInt()) % 1E6).toInt()
+            val bShift = (abs(Random.nextInt()) % 1E6).toInt()
+
+            val hexagon = HexagonVector.HOR_LEFT * aShift + HexagonVector.DESC_LEFT * bShift
+
+            assertEquals(
+                hexagon.distance(HexagonVector.ORIGIN),
+                aShift + bShift
+            )
+        }
+    }
+
+    /**
+     * Checks that the empty constructor gives the origin hexagon.
+     */
+    @Test
+    fun emptyConstructor() {
+        assertEquals(HexagonVector.ORIGIN, HexagonVector())
+    }
 }
