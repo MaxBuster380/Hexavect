@@ -1,4 +1,5 @@
-import kotlin.math.abs
+import kotlin.math.*
+import kotlin.random.Random
 
 /**
  * Representation of a single hexagon in the hexagonal plane.
@@ -39,10 +40,50 @@ class HexagonVector {
          * Unit hexagon vector. Represents the hexagon to the top-left of the origin.
          */
         val DESC_LEFT = HexagonVector(-1, 1)
+
+        /**
+         * Gives a random hexagon in the plane.
+         * @return a hexagon of arbitrary coordinates.
+         */
+        fun getRandom() : HexagonVector {
+            return HexagonVector(
+                Random.nextInt(),
+                Random.nextInt()
+            )
+        }
+
+        /**
+         * Gives the hexagon that contains the given point.
+         * @param x X coordinate of the point.
+         * @param y Y coordinate of the point.
+         * @param radius Distance from the center to an edge of the hexagon. Is also the length of the hexagon's sides.
+         * @return The hexagon containing the given point.
+         * @see toGrid
+         */
+        fun fromGrid(x : Double, y : Double, radius : Double) : HexagonVector {
+            /*
+                        | 1 0 |
+                (x,y) * | T S | = (a,b)
+
+                s = sin(PI/3)
+                t = tan(PI/3)
+                S = 1 / sin(PI/3) = 1 / s
+                T = - 1 / tan(PI/3) = - 1 / t
+            */
+            val diameter = radius * 2
+
+            val s = sin(PI / 3.0)
+            val t = tan(PI / 3.0)
+
+            val a = round((x + -y / t)/diameter).toInt()
+            val b = round(y / s / diameter).toInt()
+
+            return HexagonVector(a, b)
+        }
     }
 
-    private var a : Int
-    private var b : Int
+    private val a : Int
+    private val b : Int
 
     private constructor(a : Int, b : Int) {
         this.a = a
@@ -51,11 +92,6 @@ class HexagonVector {
 
     constructor() : this(0, 0)
 
-    init {
-        a = 0
-        b = 0
-    }
-
     // PUBLIC INSTANCE METHODS
 
     /**
@@ -63,14 +99,42 @@ class HexagonVector {
      * @param other Other hexagon to measure the distance to.
      * @return Gives the number of hexagons on the path from the two hexagons.
      */
-    fun distance(other : HexagonVector) : Int {
+    fun distance(other : HexagonVector) : Long {
         val difference = other - this
 
-        val absAB = abs(difference.a + difference.b)
-        val absA = abs(difference.a)
-        val absB = abs(difference.b)
+        val aDifference = difference.a.toLong()
+        val bDifference = difference.b.toLong()
+
+        val absAB = abs(aDifference + bDifference)
+        val absA = abs(aDifference)
+        val absB = abs(bDifference)
 
         return maxOf(absAB, absA, absB)
+    }
+
+    /**
+     * Gives the coordinates of the hexagon on a grid.
+     * @param radius Distance from the center to an edge of the hexagon. Is also the length of the hexagon's sides.
+     * @return The (X, Y) coordinates of the hexagon's center in an orthonormal basis plane.
+     * @see fromGrid
+     */
+    fun toGrid(radius : Double) : Pair<Double, Double> {
+        /*
+                    | 1 0 |
+            (a,b) * | c s | = (x,y)
+
+            c = cos(PI/3)
+            s = sin(PI/3)
+        */
+
+        val diameter = radius * 2
+        val c = cos(PI / 3.0)
+        val s = sin(PI / 3.0)
+
+        return Pair(
+            diameter*(a + c * b),
+            diameter*(s * b)
+        )
     }
 
     // PUBLIC INSTANCE METHODS - OPERATORS

@@ -21,7 +21,7 @@ class HexagonVectorTest {
 
             assertEquals(
                 hexagon.distance(HexagonVector.ORIGIN),
-                aShift + bShift
+                (aShift + bShift).toLong()
             )
         }
     }
@@ -39,7 +39,7 @@ class HexagonVectorTest {
 
             assertEquals(
                 hexagon.distance(HexagonVector.ORIGIN),
-                aShift + bShift
+                (aShift + bShift).toLong()
             )
         }
     }
@@ -57,7 +57,7 @@ class HexagonVectorTest {
 
             assertEquals(
                 hexagon.distance(HexagonVector.ORIGIN),
-                aShift + bShift
+                (aShift + bShift).toLong()
             )
         }
     }
@@ -75,7 +75,7 @@ class HexagonVectorTest {
 
             assertEquals(
                 hexagon.distance(HexagonVector.ORIGIN),
-                aShift + bShift
+                (aShift + bShift).toLong()
             )
         }
     }
@@ -86,5 +86,24 @@ class HexagonVectorTest {
     @Test
     fun emptyConstructor() {
         assertEquals(HexagonVector.ORIGIN, HexagonVector())
+    }
+
+    /**
+     * Ensures that toGrid and fromGrid are inverse functions of one another.
+     */
+    @Test
+    fun fromToGrid() {
+        val radius = 64.0
+
+        for(i in 1..RANDOM_CHECK_COUNT) {
+            val firstHexagon = HexagonVector.getRandom()
+            val center = firstHexagon.toGrid(radius)
+            val secondHexagon = HexagonVector.fromGrid(center.first, center.second, radius)
+
+            assertEquals(
+                firstHexagon,
+                secondHexagon
+            )
+        }
     }
 }
