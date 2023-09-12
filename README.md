@@ -1,14 +1,56 @@
 # Hexavect
 
 - I - Introduction
-- II - Tutorial
-- III - About
+- II - Download
+- III - Tutorial
+- IV - About
 
 ### I - Introduction
 
 This project aims to help manage a hexagonal plane, with keeping track of coordinates and applying operations on them. 
 
-### II - Tutorial
+### II - Download
+
+__Gradle__
+
+In `build.gradle` :
+
+```gradle
+allprojects {
+	repositories {
+		/*...*/
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+
+```gradle
+dependencies {
+    implementation 'com.github.MaxBuster380:Hexavect:release-1.0.0'
+}
+```
+
+__Maven__
+
+In `pom.xml` :
+```xml
+<repositories>
+	<repository>
+	    <id>jitpack.io</id>
+	    <url>https://jitpack.io</url>
+	</repository>
+</repositories>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.MaxBuster380</groupId>
+    <artifactId>Hexavect</artifactId>
+    <version>release-1.0.0</version>
+</dependency>
+```
+
+### III - Tutorial
 
 In this library, you'll find a single class : **HexagonVector**, which can both represent position and movement on the plane.
 HexagonVector acts like a **value** rather than an object, meaning an instance never changes.
@@ -30,23 +72,35 @@ val a = HexagonVector()
 println(a == ORIGIN) // true
 ```
 
-Operations are done through the standard operators (+-*/).
+Operations are done through the standard operators (+ - * /).
 
 ```Kotlin
-val diagonalTopRight = HOR_RIGHT + ASC_RIGHT
+val diagonalTopRight : HexagonVector = HOR_RIGHT + ASC_RIGHT
 
-val diagonalTopRight3Away = diagonalTopRight * 3
+val diagonalTopRight3Away : HexagonVector = diagonalTopRight * 3
 ```
 
-There is also a `distance` method for measuring the distance between two coordinates.
+Use the `distance` method to measure the distance between two hexagons.
 ```Kotlin
-val a = HOR_LEFT * 4
-val b = HOR_RIGHT * 5
+val a : HexagonVector = HOR_LEFT * 4
+val b : HexagonVector = HOR_RIGHT * 5
 
-println(a.distance(b)) // 9
+val distance : Long = a.distance(b)
+
+println(distance) // 9
 ```
 
-### III - About
+You can translate standard (x, y) coordinates to and from the hexagonal plane. 
+```Kotlin
+val HEXAGON_RADIUS = 64.0
+val mouseX : Int
+val mouseY : Int
+
+val selectedTile : HexagonVector = HexagonVector.fromGrid(mouseX, mouseY, HEXAGON_RADIUS)
+val centerSelectedTile : Pair<Double, Double> = selectedTile.toGrid(HEXAGON_RADIUS)
+```
+
+### IV - About
 
 By MaxBuster380
 
