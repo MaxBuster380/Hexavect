@@ -104,4 +104,4 @@ val centerSelectedTile : Pair<Double, Double> = selectedTile.toGrid(HEXAGON_RADI
 
 By MaxBuster380
 
-[Github Repository](https://github.com/MaxBuster380/Hexavect)
+[GitHub Repository](https://github.com/MaxBuster380/Hexavect)
