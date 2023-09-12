@@ -6,34 +6,39 @@ import kotlin.math.abs
 class HexagonVector {
     companion object {
         /**
+         * Vector coordinate of the plane's origin hexagon.
+         */
+        val ORIGIN = HexagonVector(0, 0)
+
+        /**
          * Unit hexagon vector. Represents the hexagon to the right of the origin.
          */
-        val HORIZONTAL_RIGHT = HexagonVector(1, 0)
+        val HOR_RIGHT = HexagonVector(1, 0)
 
         /**
          * Unit hexagon vector. Represents the hexagon to the left of the origin.
          */
-        val HORIZONTAL_LEFT = HexagonVector(-1, 0)
+        val HOR_LEFT = HexagonVector(-1, 0)
 
         /**
          * Unit hexagon vector. Represents the hexagon to the top-right of the origin.
          */
-        val ASCENDING_RIGHT = HexagonVector(0, 1)
+        val ASC_RIGHT = HexagonVector(0, 1)
 
         /**
          * Unit hexagon vector. Represents the hexagon to the bottom-left of the origin.
          */
-        val ASCENDING_LEFT = HexagonVector(0, -1)
+        val ASC_LEFT = HexagonVector(0, -1)
 
         /**
          * Unit hexagon vector. Represents the hexagon to the bottom-right of the origin.
          */
-        val DESCENDING_RIGHT = HexagonVector(1, -1)
+        val DESC_RIGHT = HexagonVector(1, -1)
 
         /**
          * Unit hexagon vector. Represents the hexagon to the top-left of the origin.
          */
-        val DESCENDING_LEFT = HexagonVector(-1, 1)
+        val DESC_LEFT = HexagonVector(-1, 1)
     }
 
     private var a : Int
