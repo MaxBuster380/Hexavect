@@ -43,6 +43,7 @@ class HexagonVector {
 
     private var a : Int
     private var b : Int
+
     private constructor(a : Int, b : Int) {
         this.a = a
         this.b = b
