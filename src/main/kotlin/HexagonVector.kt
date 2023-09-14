@@ -80,13 +80,14 @@ class HexagonVector {
 
         /**
          * Gives the hexagon that contains the given point.
+         * The input point is in the Cartesian coordinate system, also known as the standard (x, y) coordinate system.
          * @param x X coordinate of the point.
          * @param y Y coordinate of the point.
          * @param radius Distance from the center to an edge of the hexagon. Is also the length of the hexagon's sides.
          * @return The hexagon containing the given point.
-         * @see toGrid
+         * @see toCartesian
          */
-        fun fromGrid(x : Double, y : Double, radius : Double) : HexagonVector {
+        fun fromCartesian(x : Double, y : Double, radius : Double) : HexagonVector {
             /*
                         | 1 0 |
                 (x,y) * | T S | = (a,b)
@@ -139,12 +140,12 @@ class HexagonVector {
     }
 
     /**
-     * Gives the coordinates of the hexagon on a grid.
+     * Gives the coordinates of the hexagon on the Cartesian coordinate system, also known as the standard (x, y) coordinate system.
      * @param radius Distance from the center to an edge of the hexagon. Is also the length of the hexagon's sides.
      * @return The (X, Y) coordinates of the hexagon's center in an orthonormal basis plane.
-     * @see fromGrid
+     * @see fromCartesian
      */
-    fun toGrid(radius : Double) : Pair<Double, Double> {
+    fun toCartesian(radius : Double) : Pair<Double, Double> {
         /*
                     | 1 0 |
             (a,b) * | c s | = (x,y)

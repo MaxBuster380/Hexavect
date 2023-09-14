@@ -96,8 +96,8 @@ val HEXAGON_RADIUS = 64.0
 val mouseX : Int
 val mouseY : Int
 
-val selectedTile : HexagonVector = HexagonVector.fromGrid(mouseX, mouseY, HEXAGON_RADIUS)
-val centerSelectedTile : Pair<Double, Double> = selectedTile.toGrid(HEXAGON_RADIUS)
+val selectedTile : HexagonVector = HexagonVector.fromCartesian(mouseX, mouseY, HEXAGON_RADIUS)
+val centerSelectedTile : Pair<Double, Double> = selectedTile.toCartesian(HEXAGON_RADIUS)
 ```
 
 ### IV - About

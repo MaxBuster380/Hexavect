@@ -92,13 +92,13 @@ class HexagonVectorTest {
      * Ensures that toGrid and fromGrid are inverse functions of one another.
      */
     @Test
-    fun fromToGrid() {
+    fun fromToCartesian() {
         val radius = 64.0
 
         for(i in 1..RANDOM_CHECK_COUNT) {
             val firstHexagon = HexagonVector.getRandom()
-            val center = firstHexagon.toGrid(radius)
-            val secondHexagon = HexagonVector.fromGrid(center.first, center.second, radius)
+            val center = firstHexagon.toCartesian(radius)
+            val secondHexagon = HexagonVector.fromCartesian(center.first, center.second, radius)
 
             assertEquals(
                 firstHexagon,
