@@ -68,7 +68,7 @@ It provides 7 class constants to do operations with :
  - **BOT_RIGHT**, unit vector for moving one tile to the bottom-right.
  - **BOT_LEFT**, unit vector for moving one tile to the bottom-left.
 
-![ERROR : IMAGE DIDN'T LOAD](https://github.com/MaxBuster380/Hexavect/tree/main/README_images/unitVectors.svg)
+![Image didn't load (click to see)](https://raw.githubusercontent.com/MaxBuster380/Hexavect/main/README_images/unitVectors.svg)
 
 A HexagonVector is made up of two components (a, b).
 ```Kotlin
