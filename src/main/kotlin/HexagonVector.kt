@@ -1,3 +1,35 @@
+/*
+
+MIT License
+
+Copyright (c) 2023 MaxBuster
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+HexagonVector.kt
+
+release-1.2.0
+
+Repository : https://github.com/MaxBuster380/Hexavect
+
+ */
+
 import kotlin.math.*
 import kotlin.random.Random
 
@@ -27,22 +59,22 @@ data class HexagonVector(
         /**
          * Unit hexagon vector. Represents the hexagon to the top-right of the origin.
          */
-        val ASC_RIGHT = HexagonVector(0, 1)
+        val TOP_RIGHT = HexagonVector(0, 1)
 
         /**
          * Unit hexagon vector. Represents the hexagon to the bottom-left of the origin.
          */
-        val ASC_LEFT = HexagonVector(0, -1)
+        val BOT_LEFT = HexagonVector(0, -1)
 
         /**
          * Unit hexagon vector. Represents the hexagon to the bottom-right of the origin.
          */
-        val DESC_RIGHT = HexagonVector(1, -1)
+        val BOT_RIGHT = HexagonVector(1, -1)
 
         /**
          * Unit hexagon vector. Represents the hexagon to the top-left of the origin.
          */
-        val DESC_LEFT = HexagonVector(-1, 1)
+        val TOP_LEFT = HexagonVector(-1, 1)
 
         /**
          * Gives a random hexagon in the plane.

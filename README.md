@@ -26,7 +26,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.MaxBuster380:Hexavect:release-1.1.1'
+    implementation 'com.github.MaxBuster380:Hexavect:release-1.2.0'
 }
 ```
 
@@ -46,7 +46,7 @@ In `pom.xml` :
 <dependency>
     <groupId>com.github.MaxBuster380</groupId>
     <artifactId>Hexavect</artifactId>
-    <version>release-1.1.1</version>
+    <version>release-1.2.0</version>
 </dependency>
 ```
 
@@ -63,10 +63,10 @@ It provides 7 class constants to do operations with :
  - **ORIGIN**, center of the plane.
  - **HOR_RIGHT**, unit vector for moving one tile to the right.
  - **HOR_LEFT**, unit vector for moving one tile to the left.
- - **ASC_RIGHT**, unit vector for moving one tile to the top-right.
- - **ASC_LEFT**, unit vector for moving one tile to the top-left.
- - **DESC_RIGHT**, unit vector for moving one tile to the bottom-right.
- - **DESC_LEFT**, unit vector for moving one tile to the bottom-left.
+ - **TOP_RIGHT**, unit vector for moving one tile to the top-right.
+ - **TOP_LEFT**, unit vector for moving one tile to the top-left.
+ - **BOT_RIGHT**, unit vector for moving one tile to the bottom-right.
+ - **BOT_LEFT**, unit vector for moving one tile to the bottom-left.
 
 ![ERROR : IMAGE DIDN'T LOAD](https://github.com/MaxBuster380/Hexavect/tree/main/README_images/unitVectors.svg)
 
@@ -88,15 +88,15 @@ println(a == ORIGIN) // true
 You can also create an instance through operations, which are done through the standard operators (+ - * /).
 
 ```Kotlin
-val diagonalTopRight : HexagonVector = HOR_RIGHT + ASC_RIGHT
+val diagonalTopRight : HexagonVector = HexagonVector.HOR_RIGHT + HexagonVector.TOP_RIGHT
 
 val diagonalTopRight3Away : HexagonVector = diagonalTopRight * 3
 ```
 
 Use the `distance` method to measure the distance between two hexagons.
 ```Kotlin
-val a : HexagonVector = HOR_LEFT * 4
-val b : HexagonVector = HOR_RIGHT * 5
+val a : HexagonVector = HexagonVector.HOR_LEFT * 4
+val b : HexagonVector = HexagonVector.HOR_RIGHT * 5
 
 val distance : Long = a.distance(b)
 

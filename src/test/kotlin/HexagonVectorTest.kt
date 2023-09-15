@@ -17,7 +17,7 @@ class HexagonVectorTest {
             val aShift = (abs(Random.nextInt()) % 1E6).toInt()
             val bShift = (abs(Random.nextInt()) % 1E6).toInt()
 
-            val hexagon = HexagonVector.HOR_RIGHT * aShift + HexagonVector.ASC_RIGHT * bShift
+            val hexagon = HexagonVector.HOR_RIGHT * aShift + HexagonVector.TOP_RIGHT * bShift
 
             assertEquals(
                 hexagon.distance(HexagonVector.ORIGIN),
@@ -35,7 +35,7 @@ class HexagonVectorTest {
             val aShift = (abs(Random.nextInt()) % 1E6).toInt()
             val bShift = (abs(Random.nextInt()) % 1E6).toInt()
 
-            val hexagon = HexagonVector.HOR_RIGHT * aShift + HexagonVector.DESC_RIGHT * bShift
+            val hexagon = HexagonVector.HOR_RIGHT * aShift + HexagonVector.BOT_RIGHT * bShift
 
             assertEquals(
                 hexagon.distance(HexagonVector.ORIGIN),
@@ -53,7 +53,7 @@ class HexagonVectorTest {
             val aShift = (abs(Random.nextInt()) % 1E6).toInt()
             val bShift = (abs(Random.nextInt()) % 1E6).toInt()
 
-            val hexagon = HexagonVector.HOR_LEFT * aShift + HexagonVector.ASC_LEFT * bShift
+            val hexagon = HexagonVector.HOR_LEFT * aShift + HexagonVector.BOT_LEFT * bShift
 
             assertEquals(
                 hexagon.distance(HexagonVector.ORIGIN),
@@ -71,7 +71,7 @@ class HexagonVectorTest {
             val aShift = (abs(Random.nextInt()) % 1E6).toInt()
             val bShift = (abs(Random.nextInt()) % 1E6).toInt()
 
-            val hexagon = HexagonVector.HOR_LEFT * aShift + HexagonVector.DESC_LEFT * bShift
+            val hexagon = HexagonVector.HOR_LEFT * aShift + HexagonVector.TOP_LEFT * bShift
 
             assertEquals(
                 hexagon.distance(HexagonVector.ORIGIN),
