@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="600" height="600">
+  <title>Exemple simple de figure SVG</title>
+  <desc>
+    Cette figure est constituée d'un rectangle,
+    d'un segment de droite et d'un cercle.
+  </desc>
+
+  <!--  -->
+  <polygon points="387,550 473,500 473,400 387,350 300,400 300,500" stroke="black" fill="white"/>
+  <text x="341" y="450" fill="red">DESC_RIGHT</text>
+  <!--  -->
+  <polygon points="473,400 560,350 560,250 473,200 387,250 387,350" stroke="black" fill="white"/>
+  <text x="430" y="300" fill="red">HOR_RIGHT</text>
+  <!--  -->
+  <polygon points="387,250 473,200 473,100 387,50 300,100 300,200" stroke="black" fill="white"/>
+  <text x="342" y="150" fill="red">ASC_RIGHT</text>
+  <!--  -->
+  <polygon points="213,250 300,200 300,100 213,50 127,100 127,200" stroke="black" fill="white"/>
+  <text x="170" y="150" fill="red">DESC_LEFT</text>
+  <!--  -->
+  <polygon points="127,400 213,350 213,250 127,200 40,250 40,350" stroke="black" fill="white"/>
+  <text x="87" y="300" fill="red">HOR_LEFT</text>
+  <!--  -->
+  <polygon points="213,550 300,500 300,400 213,350 127,400 127,500" stroke="black" fill="white"/>
+  <text x="173" y="450" fill="red">ASC_LEFT</text>
+  <!-- ORIGIN -->
+  <polygon points="300,400 387,350 387,250 300,200 213,250 213,350" stroke="blue" fill="white"/>
+  <text x="270" y="300" fill="red">ORIGIN</text>
+</svg>
