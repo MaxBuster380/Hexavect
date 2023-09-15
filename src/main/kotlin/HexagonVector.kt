@@ -4,7 +4,10 @@ import kotlin.random.Random
 /**
  * Representation of a single hexagon in the hexagonal plane.
  */
-class HexagonVector {
+data class HexagonVector(
+    val a : Int,
+    val b : Int
+) {
     companion object {
         /**
          * Vector coordinate of the plane's origin hexagon.
@@ -70,24 +73,16 @@ class HexagonVector {
                 S = 1 / sin(PI/3) = 1 / s
                 T = - 1 / tan(PI/3) = - 1 / t
             */
-            val diameter = radius * 2
+            val altitude = radius * sqrt(3.0) * 0.5
 
             val s = sin(PI / 3.0)
             val t = tan(PI / 3.0)
 
-            val a = round((x + -y / t)/diameter).toInt()
-            val b = round(y / s / diameter).toInt()
+            val a = round((x + -y / t)/altitude).toInt()
+            val b = round(y / s / altitude).toInt()
 
             return HexagonVector(a, b)
         }
-    }
-
-    private val a : Int
-    private val b : Int
-
-    constructor(a : Int, b : Int) {
-        this.a = a
-        this.b = b
     }
 
     constructor() : this(0, 0)
@@ -127,13 +122,14 @@ class HexagonVector {
             s = sin(PI/3)
         */
 
-        val diameter = radius * 2
+        val altitude = radius * sqrt(3.0) * 0.5
+
         val c = cos(PI / 3.0)
         val s = sin(PI / 3.0)
 
         return Pair(
-            diameter*(a + c * b),
-            diameter*(s * b)
+            altitude*(a + c * b),
+            altitude*(s * b)
         )
     }
 
