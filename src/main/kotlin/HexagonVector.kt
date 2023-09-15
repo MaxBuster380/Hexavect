@@ -74,13 +74,13 @@ data class HexagonVector(
                 S = 1 / sin(PI/3) = 1 / s
                 T = - 1 / tan(PI/3) = - 1 / t
             */
-            val altitude = radius * sqrt(3.0) * 0.5
+            val altitudeDoubled = radius * sqrt(3.0)
 
             val s = sin(PI / 3.0)
             val t = tan(PI / 3.0)
 
-            val a = round((x + -y / t)/altitude).toInt()
-            val b = round(y / s / altitude).toInt()
+            val a = round((x + -y / t)/altitudeDoubled).toInt()
+            val b = round(y / s / altitudeDoubled).toInt()
 
             return HexagonVector(a, b)
         }
@@ -123,14 +123,14 @@ data class HexagonVector(
             s = sin(PI/3)
         */
 
-        val altitude = radius * sqrt(3.0) * 0.5
+        val altitudeDoubled = radius * sqrt(3.0)
 
         val c = cos(PI / 3.0)
         val s = sin(PI / 3.0)
 
         return Pair(
-            altitude*(a + c * b),
-            altitude*(s * b)
+            altitudeDoubled*(a + c * b),
+            altitudeDoubled*(s * b)
         )
     }
 
