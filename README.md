@@ -26,7 +26,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.MaxBuster380:Hexavect:release-1.0.2'
+    implementation 'com.github.MaxBuster380:Hexavect:release-1.1.0'
 }
 ```
 
@@ -46,15 +46,18 @@ In `pom.xml` :
 <dependency>
     <groupId>com.github.MaxBuster380</groupId>
     <artifactId>Hexavect</artifactId>
-    <version>release-1.0.2</version>
+    <version>release-1.1.0</version>
 </dependency>
 ```
 
 ### III - Tutorial
 
-In this library, you'll find a single class : **HexagonVector**, which can both represent position and movement on the plane.
-HexagonVector acts like a **value** rather than an object, meaning an instance never changes.
-Note that a hexagon is **not subdividable**, unlike a square or triangle, so all operations are done with integers.
+In this library, you'll find a single class : **HexagonVector**, 
+a data class which can both represent position and movement on the plane.
+HexagonVector acts like a **value** rather than an object, 
+meaning an instance never changes.
+Note that a hexagon is **not subdividable**, 
+unlike a square or triangle, so all operations are done with integers.
 
 It provides 7 class constants to do operations with :
  - **ORIGIN**, center of the plane.
@@ -65,14 +68,22 @@ It provides 7 class constants to do operations with :
  - **DESC_RIGHT**, unit vector for moving one tile to the bottom-right.
  - **DESC_LEFT**, unit vector for moving one tile to the bottom-left.
 
-Instanciating a HexagonVector is the same as getting ORIGIN.
+A HexagonVector is made up of two components (a, b).
+```Kotlin
+val myHexagon = HexagonVector(10, 8)
+
+println(myHexagon.a) // 10
+println(myHexagon.b) // 8
+```
+
+The empty constructor creates ORIGIN.
 ```Kotlin
 val a = HexagonVector()
 
 println(a == ORIGIN) // true
 ```
 
-Operations are done through the standard operators (+ - * /).
+You can also create an instance through operations, which are done through the standard operators (+ - * /).
 
 ```Kotlin
 val diagonalTopRight : HexagonVector = HOR_RIGHT + ASC_RIGHT
