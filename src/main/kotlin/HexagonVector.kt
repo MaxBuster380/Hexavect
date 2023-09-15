@@ -85,7 +85,7 @@ class HexagonVector {
     private val a : Int
     private val b : Int
 
-    private constructor(a : Int, b : Int) {
+    constructor(a : Int, b : Int) {
         this.a = a
         this.b = b
     }
@@ -135,6 +135,24 @@ class HexagonVector {
             diameter*(a + c * b),
             diameter*(s * b)
         )
+    }
+
+    /**
+     * Gets the A component of the vector.
+     *
+     * @return The A component of the vector.
+     */
+    fun getA() : Int {
+        return a
+    }
+
+    /**
+     * Gets the B component of the vector.
+     *
+     * @return The B component of the vector.
+     */
+    fun getB() : Int {
+        return b
     }
 
     // PUBLIC INSTANCE METHODS - OPERATORS
